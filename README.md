@@ -61,6 +61,7 @@ response example
 ## TODO
 
 - [x] Multiple recipients
+- [X] Dockerize
 - [ ] Add templating support
 - [ ] Add attachments support
-- [ ] Add CC support
+- [ ] Add CC/BCC support
