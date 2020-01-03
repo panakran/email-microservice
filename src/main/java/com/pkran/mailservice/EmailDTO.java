@@ -1,12 +1,20 @@
 package com.pkran.mailservice;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
+@ApiModel(value = "EmailDTO")
 public class EmailDTO {
 
+    @ApiModelProperty(value = "Email title", required = true)
     private String title;
+    @ApiModelProperty(value = "Email body", required = true)
     private String body;
+    @ApiModelProperty(value = "Email sender", required = true)
     private String sender;
+    @ApiModelProperty(value = "Email recipients", required = true)
     private List<String> recipients;
 
     public EmailDTO() {

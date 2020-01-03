@@ -1,16 +1,14 @@
 package com.pkran.mailservice;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping(path = "/api/v1.0")
 @Api(value = "Email")
 public class EmailController {
 
@@ -25,7 +23,7 @@ public class EmailController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
     @PostMapping("/email")
-    public void sentNewMail(EmailDTO emailDTO) {
+    public void sentNewMail(@ApiParam(required = true) @RequestBody EmailDTO emailDTO) {
         emailService.createMessageAndSent(emailDTO);
     }
 
