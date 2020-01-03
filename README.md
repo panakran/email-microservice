@@ -37,6 +37,35 @@ mvn spring-boot:run
 #### Open local url
 [http://localhost:8080/swagger-ui.html#/](http://localhost:8080/swagger-ui.html#/)
 
+### Docker support
+
+#### Generate jar file
+
+```cmd
+mvn clean install
+```
+
+#### Configure Dockerfile with env correct values
+
+```cmd
+ENV EMAIL_HOST="my host"
+ENV EMAIL_PORT="port number"
+ENV EMAIL_USERNAME="my username"
+ENV EMAIL_PASSWORD="my password"
+```
+
+#### Build docker image
+
+```cmd
+docker build -t com.pkran/mail-service .
+```
+
+#### Run docker image
+
+```cmd
+docker run -p 8080:8080 com.pkran/mail-service --server.port=8080
+```
+
 ## REST API
 
 POST /api/v1.0/email
